@@ -1,10 +1,10 @@
-const { response } = require('express');
+const { request, response } = require('express');
 
-const usersGet = (req, res = response) => {
+const usersGet = (req = request, res = response) => {
     res.json({ text: "Hola Mundo - controlador" });
 }
 
-const usersPost = (req, res = response) => {
+const usersPost = (req = request, res = response) => {
     const { nombre, edad } = req.body;
     res.json({
         text: "Hola post - controlador",
@@ -13,7 +13,7 @@ const usersPost = (req, res = response) => {
     });
 }
 
-const usersPut = (req, res = response) => {
+const usersPut = (req = request, res = response) => {
     const query = req.query;
     const { id } = req.params;
 
@@ -24,7 +24,7 @@ const usersPut = (req, res = response) => {
     });
 }
 
-const usersDelete = (req, res = response) => {
+const usersDelete = (req = request, res = response) => {
     const { id } = req.params;
 
     res.json({
