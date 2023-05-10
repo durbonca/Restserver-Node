@@ -1,0 +1,22 @@
+{
+  "name": "node-rest-server",
+  "version": "1.0.0",
+  "description": "Rest server created with node",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "rest",
+    "server",
+    "restserver",
+    "node"
+  ],
+  "author": "Manuel Duran",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
