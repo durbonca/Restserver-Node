@@ -1,8 +1,7 @@
 const { response } = require('express');
 
 const usersGet = (req, res = response) => {
-    res.status(418)
-        .json({ text: "Hola Mundo - controlador" });
+    res.json({ text: "Hola Mundo - controlador" });
 }
 
 const usersPost = (req, res) => {
@@ -18,22 +17,20 @@ const usersPut = (req, res) => {
     const query = req.query;
     const { id } = req.params;
 
-    res.status(418)
-        .json({
-            text: "Hola put - controlador",
-            id,
-            query
-        });
+    res.json({
+        text: "Hola put - controlador",
+        id,
+        query
+    });
 }
 
 const usersDelete = (req, res) => {
     const { id } = req.params;
 
-    res.status(418)
-        .json({
-            text: "Hola delete - controlador"
-            , id
-        });
+    res.json({
+        text: "Hola delete - controlador"
+        , id
+    });
 }
 
 
