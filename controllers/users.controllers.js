@@ -4,7 +4,7 @@ const usersGet = (req, res = response) => {
     res.json({ text: "Hola Mundo - controlador" });
 }
 
-const usersPost = (req, res) => {
+const usersPost = (req, res = response) => {
     const { nombre, edad } = req.body;
     res.json({
         text: "Hola post - controlador",
@@ -13,7 +13,7 @@ const usersPost = (req, res) => {
     });
 }
 
-const usersPut = (req, res) => {
+const usersPut = (req, res = response) => {
     const query = req.query;
     const { id } = req.params;
 
@@ -24,7 +24,7 @@ const usersPut = (req, res) => {
     });
 }
 
-const usersDelete = (req, res) => {
+const usersDelete = (req, res = response) => {
     const { id } = req.params;
 
     res.json({
