@@ -20,12 +20,10 @@ const usersPost = async (req = request, res = response) => {
     usuario.password = bcryptjs.hashSync(password, salt);
 
     await usuario.save();
+
     res.json({
-        msg: "post API - usuariosPost",
-        usuario: {
-            nombre,
-            correo,
-        }
+        msg: "Usuario Guardado correctamente",
+        usuario
     });
 }
 
