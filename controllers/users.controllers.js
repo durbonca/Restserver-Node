@@ -55,8 +55,10 @@ const usersPut = async (req = request, res = response) => {
     });
 }
 
-const usersDelete = (req = request, res = response) => {
+const usersDelete = async (req = request, res = response) => {
     const { id } = req.params;
+
+    await Usuario.findByIdAndUpdate(id, { estado: false });
 
     res.json({
         text: "Hola delete - controlador"
