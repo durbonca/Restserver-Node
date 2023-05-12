@@ -11,4 +11,9 @@ const verificarEmailExiste = async (correo = '') => {
     if (existeEmail) throw new Error(`El correo: ${correo}, ya está registrado`);
 }
 
-module.exports = { esRoleValido, verificarEmailExiste };
+const verificarUsuarioByIDExiste = async (id = '') => {
+    const existeUsuario = await Usuario.findById(id);
+    if (!existeUsuario) throw new Error(`El usuario con el ID: ${id}, no existe`);
+}
+
+module.exports = { esRoleValido, verificarEmailExiste, verificarUsuarioByIDExiste };

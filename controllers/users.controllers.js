@@ -23,14 +23,22 @@ const usersPost = async (req = request, res = response) => {
     });
 }
 
-const usersPut = (req = request, res = response) => {
-    const query = req.query;
+const usersPut = async (req = request, res = response) => {
     const { id } = req.params;
+    const { _id, google, password, correo, ...resto } = req.body;
+
+    // TODO validar contra base de datos
+    if (password) {
+        // Encriptar la contraseña
+        const salt = bcryptjs.genSaltSync();
+        resto.password = bcryptjs.hashSync(password, salt);
+    }
+
+    const usuarioDB = await Usuario.findByIdAndUpdate(id, resto, { new: true });
 
     res.json({
         text: "Hola put - controlador",
-        id,
-        query
+        id
     });
 }
 
